@@ -1,36 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Web;
-using AfricasTalkingCS;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
+﻿using AfricasTalkingCS;
 using Newtonsoft.Json.Linq;
-using PhoneNumbers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Prema.Library.BulkSms
 {
     public class BulkSms
     {
-        //private readonly AppSetting settings;
-        //private readonly Logging logging;
-        //public BulkSms(IOptionsMonitor<AppSetting> settings, Logging logging)
-        //{
-        //    this.settings = settings.CurrentValue;
-        //    this.logging = logging;
-        //}
-
         public bool SendSms(string contact, string message, string username, string apiKey)
         {
             var recep = contact;
