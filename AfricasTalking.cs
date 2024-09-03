@@ -5,7 +5,8 @@ namespace Prema.Library.BulkSms
 {
     public class BulkSms
     {
-        public bool SendSms(string contact, string message, string username, string apiKey)
+        public static string apiKey = "";
+        public static bool SendSms(string contact, string message, string username)
         {
             var recep = contact;
             var msg = message;
@@ -44,18 +45,29 @@ namespace Prema.Library.BulkSms
             }
         }
 
-        public bool SendSms(List<string> contacts, string message, string username, string apiKey)
+        public static bool SendMultipleSms(List<string> recipients, string message, string username)
         {
             var msg = message;
             bool status = false; 
 
-            foreach (var recep in contacts)
+            foreach (var recipient in recipients)
             {
-                status = SendSms(recep, msg, username, apiKey); //flawed status logic needs work.
+                status = SendSms(recipient, msg, username); //flawed status logic needs work.
             }
 
             return status;
         }
+
+        public static bool SendSIngleSms(string recipient, string message, string username)
+        {
+            var msg = message;
+            bool status = false;
+
+            status = SendSms(recipient, msg, username);
+
+            return status;
+        }
+
 
     }
 }
